@@ -22,12 +22,12 @@ export class SearchAccountComponent implements OnInit {
         promise.subscribe(response => {
           this.empResult = [response];
 
-          if ( this.empResult) {
+          if ( this.empResult.length) {
 
             this.empArray = this.empResult;
           }
           else {
-            alert("Record not found");
+            Swal.fire("Record not found");
             this.empArray = [];
           }
         },

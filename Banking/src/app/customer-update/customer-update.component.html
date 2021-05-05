@@ -1,0 +1,96 @@
+
+
+<form class="updateAccount" id='updateAccount'>
+  <h5>Update Account</h5>
+  <br>
+
+<div class="row formContainer">
+  <form id='searchBugForm' class="col-sm-9">
+    <div class="row">
+      <label class="col-sm-3 nameLable" >Account Number</label>
+      <input [(ngModel)]='accNumber' class="form-control col-sm-9" name="accountNumber" id='accountNumber'>
+    </div>
+  </form>
+  <div class="col-sm-3">
+    <button class="btn btn-primary btn-block" (click)='searchAccount()'>Search</button>
+  </div>
+</div>
+
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="fname">First Name<span>*</span></label>
+      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='fname' placeholder="First Name"
+        name="fname" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="lname">Last Name<span>*</span></label>
+      <input [(ngModel)]='emp.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="address">Address<span>*</span></label>
+      <input [(ngModel)]='emp.address.houseNumber' maxlength=100 type="text" class="form-control" id='houseNumber' placeholder="Address"
+        name="houseNumber" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="lname">City</label>
+      <input [(ngModel)]='emp.address.city' class="form-control" id='city' placeholder="City" name="City">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="address">State</label>
+      <input [(ngModel)]='emp.address.state' maxlength=100 type="text" class="form-control" id='state' placeholder="State"
+        name="state" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="pincode">Pin Code <span>*</span> </label>
+      <input [(ngModel)]='emp.address.pinCode' class="form-control" id='pincode' placeholder="Pincode" name="pincode">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+  <div class="col-sm-6">
+    <label for="severity">Status</label>
+    <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
+      <option value="ACTIVE">ACTIVE</option>
+      <option value="INACTIVE">INACTIIVE</option>
+      <option value="CLOSED" disabled>CLOSED</option>
+    </select>
+  </div>
+
+
+  <div class="col-sm-6">
+    <label for="priority">Type</label>
+    <select [(ngModel)]='emp.type' name="priority" class="form-control" id='type'>
+      <option value="SAVINGS">SAVINGS</option>
+      <option value="CURRENT">CURRENT</option>
+
+    </select>
+  </div>
+
+  </div>
+
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="address">Balance</label>
+      <input [(ngModel)]='emp.balance' maxlength=100 type="text" class="form-control" id='balance' placeholder="Balance"
+        name="name" required>
+    </div>
+    <div class="col-sm-6">
+      <label for="lname">Account Number <span>*</span> </label>
+      <input [(ngModel)]='emp.accountNumber' class="form-control" disabled id='accountNumber' placeholder="Account Number" name="Account Number">
+
+    </div>
+  </div>
+
+
+</form>
+<button  class="btn btn-primary btn-lg btn-block"  (click)='updateAcc()'>Submit</button>
+
