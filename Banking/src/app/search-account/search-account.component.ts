@@ -20,9 +20,9 @@ export class SearchAccountComponent implements OnInit {
     if (accountNumber) {
       const promise = this.employeeService.getByAccountNumber(accountNumber);
         promise.subscribe(response => {
-          this.empResult = response;
+          this.empResult = [response];
 
-          if ( this.empResult) {
+          if ( this.empResult.length) {
 
             this.empArray = this.empResult;
           }
