@@ -15,12 +15,16 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { SearchAccountComponent } from './search-account/search-account.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { CustomerSearchComponent } from './customer-search/customer-search.component';
+import { CustomerUpdateComponent } from './customer-update/customer-update.component';
 
 const routes: Routes = [
 {path:'', component:SideNavComponent},
   {path:'createaccount', component:CreateAccountComponent},
   {path:'updateaccount', component:UpdateAccountComponent},
-  {path:'searchaccount', component:SearchAccountComponent}
+  {path:'searchaccount', component:SearchAccountComponent},
+  {path:'customersearch',component:CustomerSearchComponent},
+  {path:'customerupdate', component:CustomerUpdateComponent}
 
 ];
 
@@ -36,7 +40,9 @@ const routes: Routes = [
     CreateAccountComponent,
     UpdateAccountComponent,
     SearchAccountComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    CustomerSearchComponent,
+    CustomerUpdateComponent
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes),
