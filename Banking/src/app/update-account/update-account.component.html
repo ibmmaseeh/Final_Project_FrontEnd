@@ -8,7 +8,7 @@
   <form id='searchBugForm' class="col-sm-9">
     <div class="row">
       <label class="col-sm-3 nameLable" >Account Number</label>
-      <input [(ngModel)]='accountNumber' class="form-control col-sm-9" name="accountName" id='accountNumber'>
+      <input [(ngModel)]='accNumber' class="form-control col-sm-9" name="accountNumber" id='accountNumber'>
     </div>
   </form>
   <div class="col-sm-3">
@@ -20,7 +20,7 @@
     <div class="col-sm-6">
       <label for="fname">First Name<span>*</span></label>
       <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='fname' placeholder="First Name"
-        name="name" required>
+        name="fname" required>
     </div>
 
     <div class="col-sm-6">
@@ -32,26 +32,26 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Address<span>*</span></label>
-      <input [(ngModel)]='address.houseNumber' maxlength=100 type="text" class="form-control" id='houseNumber' placeholder="Address"
-        name="name" required>
+      <input [(ngModel)]='emp.address.houseNumber' maxlength=100 type="text" class="form-control" id='houseNumber' placeholder="Address"
+        name="houseNumber" required>
     </div>
 
     <div class="col-sm-6">
       <label for="lname">City</label>
-      <input [(ngModel)]='address.city' class="form-control" id='city' placeholder="City" name="City">
+      <input [(ngModel)]='emp.address.city' class="form-control" id='city' placeholder="City" name="City">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">State</label>
-      <input [(ngModel)]='address.state' maxlength=100 type="text" class="form-control" id='state' placeholder="State"
-        name="name" required>
+      <input [(ngModel)]='emp.address.state' maxlength=100 type="text" class="form-control" id='state' placeholder="State"
+        name="state" required>
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='address.pinCode' class="form-control" id='pincode' placeholder="Pincode" name="lname">
+      <label for="pincode">Pin Code <span>*</span> </label>
+      <input [(ngModel)]='emp.address.pinCode' class="form-control" id='pincode' placeholder="Pincode" name="pincode">
 
     </div>
   </div>
@@ -92,5 +92,5 @@
 
 
 </form>
-<button  class="btn btn-primary btn-lg btn-block"  (click)='updateAccount()'>Submit</button>
+<button  class="btn btn-primary btn-lg btn-block"  (click)='updateAcc()'>Submit</button>
 

@@ -8,9 +8,10 @@ const URL = 'http://localhost:8080/';
 })
 export class EmployeeService {
 
-  updateAccount(accountNumber: string, updatedBody: { firstName: string; lastName: string; houseNumber: string; city: string; state: string; pinCode: string; type: string; status: string; balance: string; accountNumber: string; }) {
-    const endpointURL = 'http://localhost:8080/employee/' + accountNumber;
-    return this.http.put(endpointURL, updatedBody);
+  updateAccount(emp:Emp,accountNumber:string){
+    return this.http.put(URL+'employee/'+accountNumber,emp,{
+      headers: {"content-type": 'application/json' }
+    });
   }
 
   constructor(private http: HttpClient) { }
