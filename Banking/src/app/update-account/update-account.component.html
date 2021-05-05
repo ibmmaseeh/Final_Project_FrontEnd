@@ -8,7 +8,7 @@
   <form id='searchBugForm' class="col-sm-9">
     <div class="row">
       <label class="col-sm-3 nameLable" for="bugName">Account Number</label>
-      <input [(ngModel)]='emp.accountnumber' class="form-control col-sm-9" name="bugName" id='bugName'>
+      <input [(ngModel)]='emp.accountNumber' class="form-control col-sm-9" name="bugName" id='bugName'>
     </div>
   </form>
   <div class="col-sm-3">
@@ -19,39 +19,39 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="fname">First Name<span>*</span></label>
-      <input [(ngModel)]='emp.fname' maxlength=100 type="text" class="form-control" id='name' placeholder="First Name"
+      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='name' placeholder="First Name"
         name="name" required>
     </div>
 
     <div class="col-sm-6">
       <label for="lname">Last Name<span>*</span></label>
-      <input [(ngModel)]='emp.lname' class="form-control" id='lname' placeholder="Last Name" name="lname">
+      <input [(ngModel)]='emp.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Address<span>*</span></label>
-      <input [(ngModel)]='emp.address' maxlength=100 type="text" class="form-control" id='name' placeholder="Address"
+      <input [(ngModel)]='address.houseNumber' maxlength=100 type="text" class="form-control" id='name' placeholder="Address"
         name="name" required>
     </div>
 
     <div class="col-sm-6">
       <label for="lname">City</label>
-      <input [(ngModel)]='emp.city' class="form-control" id='lname' placeholder="Last Name" name="City">
+      <input [(ngModel)]='address.city' class="form-control" id='lname' placeholder="Last Name" name="City">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">State</label>
-      <input [(ngModel)]='emp.state' maxlength=100 type="text" class="form-control" id='name' placeholder="State"
+      <input [(ngModel)]='address.state' maxlength=100 type="text" class="form-control" id='name' placeholder="State"
         name="name" required>
     </div>
 
     <div class="col-sm-6">
       <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='emp.pincode' class="form-control" id='lname' placeholder="Pincode" name="lname">
+      <input [(ngModel)]='address.pinCode' class="form-control" id='lname' placeholder="Pincode" name="lname">
 
     </div>
   </div>
@@ -85,7 +85,7 @@
     </div>
     <div class="col-sm-6">
       <label for="lname">Account Number <span>*</span> </label>
-      <input [(ngModel)]='emp.accountnumber' class="form-control" id='lname' placeholder="Pincode" name="Account Number">
+      <input [(ngModel)]='emp.accountNumber' class="form-control" id='lname' placeholder="Pincode" name="Account Number">
 
     </div>
   </div>
