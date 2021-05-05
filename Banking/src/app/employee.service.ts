@@ -16,7 +16,7 @@ export class EmployeeService {
     });
   }
   getByAccountNumber(accountNumber:string  ){
-    console.log(accountNumber);
+   
     return this.http.get('http://localhost:8080/employee/'+accountNumber);
   }
    getAll(){

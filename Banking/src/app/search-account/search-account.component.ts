@@ -9,65 +9,49 @@ import Swal from 'sweetalert2';
 })
 export class SearchAccountComponent implements OnInit {
   emp:Emp = new Emp();
-  EmpResult: any;
-  EmpArray: Emp[]=[];
-  EmpArray1:any;
-  accountNumber='';
-  constructor(private employeeService:EmployeeService) { }
-search(){
- // console.log('button')
-  const accountNumber=this.accountNumber;
-console.log(accountNumber);
-//   if (accountNumber.trim()) {
-//     const promise = this.employeeService.getByAccountNumber(accountNumber);
-//     promise.subscribe(response => {
-//       this.EmpResult = response;
+  empResult:any;
+  empArray:Emp[]=[];
+  accountNumber: string = '';
 
-//       if (this.EmpResult.length) {
-//         this.EmpArray = this.EmpResult;
-//       }
-//       else {
-//         alert("Record not found");
-//         this.EmpArray=[];
-//       }
-//     },
-//       error => {
-//         alert('error happened..')
-//       });
-//   }
+  constructor(private employeeService: EmployeeService) { }
+  search() {
+    const accountNumber = this.accountNumber.trim();
+    console.log(accountNumber);
+    if (accountNumber) {
+      const promise = this.employeeService.getByAccountNumber(accountNumber);
+        promise.subscribe(response => {
+          this.empResult = [response];
 
-// }
-if (accountNumber.trim()) {
-  const promise = this.employeeService.getByAccountNumber(accountNumber);
+          if ( this.empResult) {
 
-  promise.subscribe(response => {
-    this.EmpResult = response;
-    this.EmpArray=this.EmpResult;
-    if (this.EmpArray.length>0) {
-      console.log(response);
-      alert('Account found');
+            this.empArray = this.empResult;
+          }
+          else {
+            alert("Record not found");
+            this.empArray = [];
+          }
+        },
+        error => {
+          console.log(error);
+          alert('error happened..')
+        })
     }
     else {
-      alert("Bug record with bug title not found");
+      console.log("1");
     }
-  },
-    error => {
-      alert('error happened..')
-    });
-}
-}
-getAccounts() {
-  this.employeeService.getAll().subscribe(response => {
-    this.EmpResult = response;
-    console.log(response);
-  },
-    error => {
-      console.log(error);
-      alert(error.statusText);
+  }
 
+
+getAccounts() {
+  const observable = this.employeeService.getAll();
+  observable.subscribe(response => {
+    this.empResult = response;
+    if (this.empResult.length) {
+      this.empArray = this.empResult;
     }
-  )
- }
+  }, error => alert("Error occurred"));
+}
+
   ngOnInit(): void {
     this.getAccounts();
   }
