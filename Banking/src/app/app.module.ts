@@ -18,7 +18,9 @@ import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
 {path:'', component:SideNavComponent},
-  {path:'employee', component:EmployeeComponent}
+  {path:'createaccount', component:CreateAccountComponent},
+  {path:'updateaccount', component:UpdateAccountComponent},
+  {path:'searchaccount', component:SearchAccountComponent}
 
 ];
 
