@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Emp } from './Emp';
 import { Address } from './Address';
-const URL = 'http://localhost:8080/employee/';
+const URL = 'http://localhost:8080/';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,13 +10,17 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
   save(emp:Emp) {
-    return this.http.post(URL,emp ,{
+    return this.http.post((URL+'employee'),emp ,{
       headers: {"content-type": 'application/json' },
       responseType: "text"
     });
   }
-  // searchAll(){
-  //   return this.http.get(URL);
+  getByAccountNumber(accountNumber:string  ){
+    console.log(accountNumber);
+    return this.http.get('http://localhost:8080/employee/'+accountNumber);
+  }
+   getAll(){
+     return this.http.get('http://localhost:8080/employee');
 }
 
-
+}
