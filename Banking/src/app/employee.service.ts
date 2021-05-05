@@ -8,19 +8,25 @@ const URL = 'http://localhost:8080/';
 })
 export class EmployeeService {
 
+  updateAccount(emp:Emp,accountNumber:string){
+    return this.http.put(URL+'employee/'+accountNumber,emp,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
+
   constructor(private http: HttpClient) { }
-  save(emp:Emp) {
-    return this.http.post((URL+'employee'),emp ,{
-      headers: {"content-type": 'application/json' },
+  save(emp: Emp) {
+    return this.http.post((URL + 'employee'), emp, {
+      headers: { "content-type": 'application/json' },
       responseType: "text"
     });
   }
-  getByAccountNumber(accountNumber:string  ){
-   
-    return this.http.get('http://localhost:8080/employee/'+accountNumber);
+  getByAccountNumber(accountNumber: string) {
+
+    return this.http.get('http://localhost:8080/employee/' + accountNumber);
   }
-   getAll(){
-     return this.http.get('http://localhost:8080/employee');
-}
+  getAll() {
+    return this.http.get('http://localhost:8080/employee');
+  }
 
 }
