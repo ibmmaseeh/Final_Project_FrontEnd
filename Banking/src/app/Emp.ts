@@ -1,14 +1,13 @@
+import { Address } from './Address';
+
 export class Emp{
   id:any;
-  fname:string = '';
-  lname:string = '';
-address:string='';
+  firstName:string = '';
+  lastName:string = '';
+  address:Address=new Address;
   type:string = 'SAVINGS';
   status:string = 'ACTIVE';
-city:string='';
-state:string='';
-pincode:string='';
-  submittedOn:Date = new Date();
-  accountnumber:string='';
+  createdDate:Date = new Date();
+  accountNumber:string='';
 balance:any;
 }
