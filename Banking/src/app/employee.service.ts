@@ -28,5 +28,9 @@ export class EmployeeService {
   getAll() {
     return this.http.get('http://localhost:8080/employee');
   }
+  getByAccount(accountNumber: string) {
+
+    return this.http.get('http://localhost:8080/customer/' + accountNumber);
+  }
 
 }
