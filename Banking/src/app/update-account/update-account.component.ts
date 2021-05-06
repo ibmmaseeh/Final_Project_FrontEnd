@@ -19,8 +19,8 @@ export class UpdateAccountComponent implements OnInit {
       if (accountNumber.trim()) {
         const promise = this.employeeService.getByAccountNumber(accountNumber);
         promise.subscribe(response => {
-          this.empResult = [response];
-          if (this.empResult.length) {
+          this.empResult = response;
+          if (this.empResult.length>0) {
             this.empArray = this.empResult;
             this.empArray.forEach(emp => {
 
@@ -46,7 +46,7 @@ export class UpdateAccountComponent implements OnInit {
   }
   updateAcc() {
 
-      const promise = this.employeeService.updateAccount(this.emp, this.emp.accountNumber);
+      const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
       promise.subscribe(response => {
         alert('Account Updated..')
       },
