@@ -17,6 +17,9 @@ import { SearchAccountComponent } from './search-account/search-account.componen
 import { EmployeeComponent } from './employee/employee.component';
 import { CustomerSearchComponent } from './customer-search/customer-search.component';
 import { CustomerUpdateComponent } from './customer-update/customer-update.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
 {path:'', component:SideNavComponent},
@@ -45,7 +48,8 @@ const routes: Routes = [
     CustomerUpdateComponent
   ],
   imports: [
-    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes),
+    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes), BrowserAnimationsModule,MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
