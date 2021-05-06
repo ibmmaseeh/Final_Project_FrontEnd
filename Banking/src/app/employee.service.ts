@@ -8,8 +8,8 @@ const URL = 'http://localhost:8080/';
 })
 export class EmployeeService {
 
-  updateAccount(emp:Emp,accountNumber:string){
-    return this.http.put(URL+'employee/'+accountNumber,emp,{
+  updateAccount(emp:Emp,id:string){
+    return this.http.put(URL+'employee/'+id,emp,{
       headers: {"content-type": 'application/json' }
     });
   }
