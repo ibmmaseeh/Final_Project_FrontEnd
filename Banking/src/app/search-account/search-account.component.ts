@@ -20,15 +20,16 @@ export class SearchAccountComponent implements OnInit {
     if (accountNumber) {
       const promise = this.employeeService.getByAccountNumber(accountNumber);
         promise.subscribe(response => {
-          this.empResult = [response];
-
-          if ( this.empResult.length) {
-
-            this.empArray = this.empResult;
-          }
-          else {
+          this.empResult = response;
+console.log(this.empResult);
+          if ( (this.empResult.length==0))
+         {
             Swal.fire("Record not found");
             this.empArray = [];
+
+          }
+          else {
+            this.empArray = this.empResult;
           }
         },
         error => {
