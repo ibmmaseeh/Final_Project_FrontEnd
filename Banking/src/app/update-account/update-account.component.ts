@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Emp } from '../Emp';
 import { Address } from '../Address';
 import { EmployeeService } from '../employee.service';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-update-account',
   templateUrl: './update-account.component.html',
@@ -28,7 +29,7 @@ export class UpdateAccountComponent implements OnInit {
             });
           }
           else {
-            alert("Record not found");
+            Swal.fire("Record not found");
           }
         },
           error => {
@@ -37,18 +38,34 @@ export class UpdateAccountComponent implements OnInit {
           });
       }
       else {
-        alert("Please provide account number");
+        Swal.fire("Please provide account number");
       }
     }
     else {
-      alert("Please provide account number");
+      Swal.fire("Please provide account number");
     }
   }
   updateAcc() {
 
       const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
       promise.subscribe(response => {
-        alert('Account Updated..')
+        // alert('Account Updated..')
+        Swal.fire({
+          title: 'Are you sure you want to save the changes?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, Save it',
+          // cancelButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //if Yes is pressed
+            Swal.fire('Updated', 'Changes Saved successfully!', 'success');
+          } else if (result.isDenied) {
+            //if No is pressed
+            Swal.fire('Cancelled', 'Changes are not Saved', 'error');
+          }
+        });
+
       },
         error => {
 
