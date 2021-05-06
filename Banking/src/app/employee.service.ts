@@ -13,6 +13,11 @@ export class EmployeeService {
       headers: {"content-type": 'application/json' }
     });
   }
+  updateCustomer(emp:Emp,id:string){
+    return this.http.put(URL+'employee/'+id,emp,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
 
   constructor(private http: HttpClient) { }
   save(emp: Emp) {

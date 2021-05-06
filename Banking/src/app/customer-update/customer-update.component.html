@@ -59,8 +59,8 @@
   <div class="col-sm-6">
     <label for="severity">Status</label>
     <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
-      <option value="ACTIVE">ACTIVE</option>
-      <option value="INACTIVE">INACTIIVE</option>
+      <option value="ACTIVE" disabled>ACTIVE</option>
+      <option value="INACTIVE" disabled>INACTIIVE</option>
       <option value="CLOSED" disabled>CLOSED</option>
     </select>
   </div>
@@ -69,8 +69,8 @@
   <div class="col-sm-6">
     <label for="priority">Type</label>
     <select [(ngModel)]='emp.type' name="priority" class="form-control" id='type'>
-      <option value="SAVINGS">SAVINGS</option>
-      <option value="CURRENT">CURRENT</option>
+      <option value="SAVINGS" disabled>SAVINGS</option>
+      <option value="CURRENT" disabled>CURRENT</option>
 
     </select>
   </div>
