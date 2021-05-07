@@ -47,8 +47,31 @@ export class CustomerUpdateComponent implements OnInit {
   }
   updateAcc() {
 
-
-
+    if (!this.emp.firstName.trim()) {
+      Swal.fire("Please provide First name");
+    }
+    else if (!this.emp.lastName.trim()) {
+      Swal.fire("Please provide Last Name");
+    }
+    else if (!this.emp.address.houseNumber.trim()) {
+      Swal.fire("Please provide Address");
+    }
+    else if (!this.emp.address.city.trim()) {
+      Swal.fire("Please provide City Name");
+    }
+    else if (!this.emp.address.state.trim()) {
+      Swal.fire("Please provide State");
+    }
+    else if (!this.emp.address.pinCode.trim()) {
+      Swal.fire("Please provide pincode");
+    }
+    else if (!this.emp.balance) {
+      Swal.fire("Please provide Balance");
+    }
+    else if (!this.emp.accountNumber.trim()) {
+      Swal.fire("Please provide Account Number");
+    }
+else{
       const promise = this.employeeService.updateCustomer(this.emp, this.emp.id);
       promise.subscribe(response => {
         // alert('Account Updated..')
@@ -74,7 +97,7 @@ export class CustomerUpdateComponent implements OnInit {
 
         })
     }
-
+  }
   ngOnInit(): void {
   }
 
