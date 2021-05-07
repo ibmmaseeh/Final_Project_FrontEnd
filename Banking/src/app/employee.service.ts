@@ -8,14 +8,14 @@ const URL = 'http://localhost:8080/';
 })
 export class EmployeeService {
 
-  updateAccount(emp: Emp, id: string) {
-    return this.http.put(URL + 'employee/' + id, emp, {
-      headers: { "content-type": 'application/json' }
+  updateAccount(emp:Emp,id:string){
+    return this.http.put(URL+'employee/'+id,emp,{
+      headers: {"content-type": 'application/json' }
     });
   }
-  updateCustomer(emp: Emp, id: string) {
-    return this.http.put(URL + 'employee/' + id, emp, {
-      headers: { "content-type": 'application/json' }
+  updateCustomer(emp:Emp,id:string){
+    return this.http.put(URL+'employee/'+id,emp,{
+      headers: {"content-type": 'application/json' }
     });
   }
 
@@ -37,7 +37,5 @@ export class EmployeeService {
 
     return this.http.get('http://localhost:8080/customer/' + accountNumber);
   }
-
-
 
 }
