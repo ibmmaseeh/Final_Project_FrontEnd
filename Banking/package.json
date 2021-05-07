@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~11.2.12",
     "@angular/platform-browser-dynamic": "~11.2.12",
     "@angular/router": "~11.2.12",
+    "bootstrap": "^5.0.0-alpha1",
+    "bootstrap-icons": "^1.4.1",
     "rxjs": "~6.6.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.16.7",

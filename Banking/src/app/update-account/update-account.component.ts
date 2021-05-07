@@ -65,7 +65,6 @@ export class UpdateAccountComponent implements OnInit {
             Swal.fire('Cancelled', 'Changes are not Saved', 'error');
           }
         });
-
       },
         error => {
 

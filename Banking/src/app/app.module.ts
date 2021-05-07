@@ -17,7 +17,10 @@ import { SearchAccountComponent } from './search-account/search-account.componen
 import { EmployeeComponent } from './employee/employee.component';
 import { CustomerSearchComponent } from './customer-search/customer-search.component';
 import { CustomerUpdateComponent } from './customer-update/customer-update.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 
 const routes: Routes = [
@@ -26,7 +29,10 @@ const routes: Routes = [
   {path:'updateaccount', component:UpdateAccountComponent},
   {path:'searchaccount', component:SearchAccountComponent},
   {path:'customersearch',component:CustomerSearchComponent},
-  {path:'customerupdate', component:CustomerUpdateComponent}
+  {path:'customerupdate', component:CustomerUpdateComponent},
+  {path:'about-us', component:AboutUsComponent},
+  {path:'deposit', component:DepositComponent},
+  {path:'withdraw', component:WithdrawComponent}
 
 ];
 
@@ -44,10 +50,13 @@ const routes: Routes = [
     SearchAccountComponent,
     EmployeeComponent,
     CustomerSearchComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    DepositComponent,
+    WithdrawComponent,
+    AboutUsComponent
   ],
   imports: [
-    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes), BrowserAnimationsModule
+    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
