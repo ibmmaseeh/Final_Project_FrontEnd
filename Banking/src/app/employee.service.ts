@@ -8,24 +8,17 @@ const URL = 'http://localhost:8080/';
 })
 export class EmployeeService {
 
-  updateAccount(emp:Emp,id:string){
-    return this.http.put(URL+'employee/'+id,emp,{
-      headers: {"content-type": 'application/json' }
-    });
-  }
-  updateCustomer(emp:Emp,id:string){
-    return this.http.put(URL+'employee/'+id,emp,{
-      headers: {"content-type": 'application/json' }
-    });
-  }
+
 
   constructor(private http: HttpClient) { }
+  //Create For Employee
   save(emp: Emp) {
     return this.http.post((URL + 'employee'), emp, {
       headers: { "content-type": 'application/json' },
       responseType: "text"
     });
   }
+  //Get All Methods
   getByAccountNumber(accountNumber: string) {
 
     return this.http.get('http://localhost:8080/employee/' + accountNumber);
@@ -37,5 +30,17 @@ export class EmployeeService {
 
     return this.http.get('http://localhost:8080/customer/' + accountNumber);
   }
+// Update Methods for Customer and Employee
+  updateAccount(emp:Emp,id:string){
+    return this.http.put(URL+'employee/'+id,emp,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
+  updateCustomer(emp:Emp,id:string){
+    return this.http.put(URL+'customer/'+id,emp,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
 
-}
+  }
+
