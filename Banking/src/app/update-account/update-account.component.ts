@@ -50,8 +50,21 @@ export class UpdateAccountComponent implements OnInit {
       const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
       promise.subscribe(response => {
         // alert('Account Updated..')
-        Swal.fire("Amount Deposited Successfully");
-
+        Swal.fire({
+          title: 'Are you sure you want to save the changes?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, Save it',
+          // cancelButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //if Yes is pressed
+            Swal.fire('Updated', 'Changes Saved successfully!', 'success');
+          } else if (result.isDenied) {
+            //if No is pressed
+            Swal.fire('Cancelled', 'Changes are not Saved', 'error');
+          }
+        });
       },
         error => {
 
