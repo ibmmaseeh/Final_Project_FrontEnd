@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:'customerupdate', component:CustomerUpdateComponent},
   {path:'about-us', component:AboutUsComponent},
   {path:'deposit', component:DepositComponent},
-  {path:'withdraw', component:DepositComponent}
+  {path:'withdraw', component:WithdrawComponent}
 
 ];
 

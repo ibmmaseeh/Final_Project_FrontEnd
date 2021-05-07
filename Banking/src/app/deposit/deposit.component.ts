@@ -50,26 +50,40 @@ export class DepositComponent implements OnInit {
   }
 
   deposit() {
+    if(this.emp.firstName.length<=0){
+      Swal.fire("Kindly fill details")
+          }
+          else{
     var a:number=+this.emp.balance
       var b:number=+this.emp.depositAmount;
       a+=b;
       this.emp.balance=a;
-      // this.account=this.accountArray;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this transaction!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, deposit Rs. '+this.emp.depositAmount+''
+      }).then((result) => {
+        if (result.isConfirmed) {
+const promise=this.employeeService.updateAccount(this.emp,this.emp.id)
+promise.subscribe(response=>{
 
-      {
 
-        const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
-        promise.subscribe(response => {
-          // alert('Account Updated..')
-         Swal.fire("Amount Deposited")
-        },
-          error => {
-
-                alert("Error occurred");
-
-          })
+          Swal.fire(
+            ("Transaction Complete"),( "Rs. "+ this.emp.depositAmount+" has been deposit. And remaining balance is Rs. "+this.emp.balance),
+            'success'
+            )
+          }
+)}
+      })
       }
+
     }
+
+
   ngOnInit(): void {
   }
 
