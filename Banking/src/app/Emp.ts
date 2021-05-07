@@ -10,4 +10,8 @@ export class Emp{
   createdDate:Date = new Date();
   accountNumber:string='';
 balance:any;
+Email:string='';
+mobileNumber:any;
+depositAmount:number=0;
+withdrawAmount:number=0;
 }

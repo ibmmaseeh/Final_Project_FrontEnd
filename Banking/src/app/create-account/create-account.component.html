@@ -32,6 +32,19 @@
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
+      <label for="address">Email<span>*</span></label>
+      <input [(ngModel)]='emp.Email' type="email" class="form-control" id='name' placeholder="Email"
+        name="email" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="lname">phone Number</label>
+      <input [(ngModel)]='emp.mobileNumber' type="phone" class="form-control"  placeholder="Phone Number" name="phone">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
       <label for="address">State</label>
       <input [(ngModel)]='emp.address.state' maxlength=100 type="text" class="form-control" placeholder="State"
         name="name" required>
