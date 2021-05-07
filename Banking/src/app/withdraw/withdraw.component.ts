@@ -93,7 +93,7 @@ Swal.fire("Kindly fill details")
 
 
         Swal.fire(
-          ( "Rs. "+ this.emp.withdrawAmount+" has been debited. Remaining balance is Rs. "+this.emp.balance),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
+          ( "Rs. "+ this.emp.withdrawAmount+" has been debited."),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
             'success'
             )
       }
