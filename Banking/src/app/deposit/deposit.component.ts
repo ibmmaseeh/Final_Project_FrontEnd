@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Emp } from '../Emp';
-import { Address } from '../Address';
 import { EmployeeService } from '../employee.service';
 import Swal from 'sweetalert2'
+
 @Component({
-  selector: 'app-update-account',
-  templateUrl: './update-account.component.html',
-  styleUrls: ['./update-account.component.css']
+  selector: 'app-deposit',
+  templateUrl: './deposit.component.html',
+  styleUrls: ['./deposit.component.css']
 })
-export class UpdateAccountComponent implements OnInit {
-  emp: Emp = new Emp();
-  empResult: any;
-  empArray: Emp[] = [];
-  accNumber: string = '';
-  constructor(private employeeService: EmployeeService) { }
+export class DepositComponent implements OnInit {
+
+  emp:Emp = new Emp();
+  empResult:any;
+  empArray:Emp[]=[];
+
+
+  accountNumber: string = '';
+  constructor(private employeeService:EmployeeService) { }
   searchAccount() {
-    const accountNumber = this.accNumber;
+    const accountNumber = this.accountNumber;
     if (accountNumber) {
       if (accountNumber.trim()) {
         const promise = this.employeeService.getByAccountNumber(accountNumber);
@@ -45,21 +48,28 @@ export class UpdateAccountComponent implements OnInit {
       Swal.fire("Please provide account number");
     }
   }
-  updateAcc() {
 
-      const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
-      promise.subscribe(response => {
-        // alert('Account Updated..')
-        Swal.fire("Amount Deposited Successfully");
+  deposit() {
+    var a:number=+this.emp.balance
+      var b:number=+this.emp.depositAmount;
+      a+=b;
+      this.emp.balance=a;
+      // this.account=this.accountArray;
 
-      },
-        error => {
+      {
 
-              alert("Error occurred");
+        const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
+        promise.subscribe(response => {
+          // alert('Account Updated..')
+         Swal.fire("Amount Deposited")
+        },
+          error => {
 
-        })
+                alert("Error occurred");
+
+          })
+      }
     }
-
   ngOnInit(): void {
   }
 
