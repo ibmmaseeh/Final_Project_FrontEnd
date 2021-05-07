@@ -1,69 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="en">
 
-<nav class="navbar navbar-expand-md bg-primary navbar-dark">
-  <a class="navbar-brand" href="#"> Banking Services</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="htmlcss bootstrap, multi level menu, submenu, treeview nav menu examples" />
+  <meta name="description"
+    content="Bootstrap 5 navbar multilevel treeview examples for any type of project, Bootstrap 5" />
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse"
-    data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
+  <title>Banking system</title>
 
-      <li class="nav-item">
-        <li class="dropdown">
-          <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">EMPLOYEE
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-link" href="#" routerLink="/createaccount" routerLinkActive="router-link-active">CREATE ACCOUNT</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" routerLink="/updateaccount" routerLinkActive="router-link-active">UPDATE ACCOUNT</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" routerLink="/searchaccount" routerLinkActive="router-link-active">SEARCH ACCOUNT</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <li class="dropdown">
-            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">CUSTOMER
-            <span class="caret"></span></a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    /* ============ desktop view ============ */
+    @media all and (min-width: 992px) {
+
+      .dropdown-menu li {
+        position: relative;
+      }
+
+      .dropdown-menu .submenu {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: -7px;
+      }
+
+      .dropdown-menu .submenu-left {
+        right: 100%;
+        left: auto;
+      }
+
+      .dropdown-menu>li:hover {
+        background-color: #f1f1f1
+      }
+
+      .dropdown-menu>li:hover>.submenu {
+        display: block;
+      }
+    }
+
+    /* ============ desktop view .end// ============ */
+
+    /* ============ small devices ============ */
+    @media (max-width: 991px) {
+
+      .dropdown-menu .dropdown-menu {
+        margin-left: 0.7rem;
+        margin-right: 0.7rem;
+        margin-bottom: .5rem;
+      }
+
+    }
+
+    /* ============ small devices .end// ============ */
+  </style>
 
 
-            <ul class="dropdown-menu bg-primary">
-              <li class="dropdown">
-                <mat-select-trigger   href="#"
-                >    TRANSACTIONS
+  <script type="text/javascript">
+    window.addEventListener("resize", function () {
+      "use strict";
+      window.location.reload();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      // make it as accordion for smaller screens
+      if (window.innerWidth < 992) {
+
+        // close all inner dropdowns when parent is closed
+        document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
+          everydropdown.addEventListener('hidden.bs.dropdown', function () {
+            // after dropdown is hidden, then find all submenus
+            this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
+              // hide every submenu as well
+              everysubmenu.style.display = 'content';
+            });
+          })
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
+          element.addEventListener('click', function (e) {
+
+            let nextEl = this.nextElementSibling;
+            if (nextEl && nextEl.classList.contains('submenu')) {
+              // prevent opening link if link needs to open dropdown
+              e.preventDefault();
+
+              if (nextEl.style.display == "block") {
+                nextEl.style.display = 'block';
+              } else {
+                nextEl.style.display = 'contents';
+              }
+
+            }
+          });
+        })
+      }
+      // end if innerWidth
+
+    });
+	// DOMContentLoaded  end
+  </script>
+
+</head>
+
+<body>
+
+  <div>
+
+    <!-- ============= COMPONENT ============== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BANKING SYSTEM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
 
 
-                  <mat-select>
-                   <mat-option>DEPOSIT</mat-option>
-                   <mat-option>WITHDRAW</mat-option>
-                  </mat-select>
+          <ul class="navbar-nav">
 
-
-
-
-
-                </mat-select-trigger>
-
-
-              <li class="nav-item"><a class="nav-link bg-primary" href="#" routerLink="/customerupdate" routerLinkActive="router-link-active">UPDATE ACCOUNT</a></li>
-              <li class="nav-item"><a class="nav-link bg-primary" href="#" routerLink="/customersearch" routerLinkActive="router-link-active">SEARCH ACCOUNT</a></li>
-
-            </ul>
-          </li>
-
-          <!-- <li class="nav-item">
-            <li class="dropdown">
-              <a class="dropdown-toggle nav-link bg-primary"  data-toggle="dropdown" href="#">    TRANSACTIONS
-              <span class="caret"></span></a>
-
-              <ul class="dropdown-menu bg-primary">
-                <li class="nav-item "><a class="nav-link bg-primary" href="#" routerLink="/createaccount" routerLinkActive="router-link-active">DEPOSIT</a></li>
-                <li class="nav-item "><a class="nav-link bg-primary" href="#" routerLink="/updateaccount" routerLinkActive="router-link-active">WITHDRAW</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> EMPLOYEE </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> CREATE ACCOUNT </a></li>
+                <li><a class="dropdown-item" href="#"> UPDATE ACCOUNT</a></li>
+                <li><a class="dropdown-item" href="#"> SEARCH ACCOUNT</a></li>
               </ul>
-            </li> -->
-     <li class="nav-item"><a  class="nav-link" href="#" routerLink="/contactus" routerLinkActive="router-link-active">CONTACT US
-          </a></li>
-    </ul>
-  </div>
+
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> CUSTOMER </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> UPDATE ACCOUNT </a></li>
+                <li><a class="dropdown-item" href="#"> SEARCH ACCOUNT</a></li>
+                <li><a class="dropdown-item" href="#"> TRANSACTION &raquo; </a>
+                  <ul class="submenu dropdown-menu">
+                    <li><a class="dropdown-item" href="#">WITHDRAW</a></li>
+                    <li><a class="dropdown-item" href="#">DEPOSIT</a></li>
+                  </ul>
+
+                </li>
+              </ul>
+
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#"> CONTACT US</a></li>
 
 
-</nav>
+          </ul>
 
+
+
+        </div> <!-- navbar-collapse.// -->
+      </div> <!-- container-fluid.// -->
+    </nav>
+
+    <!-- ============= COMPONENT END// ============== -->
+
+
+
+  </div><!-- container //  -->
+
+</body>
+
+</html>
