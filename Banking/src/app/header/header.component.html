@@ -12,6 +12,7 @@
         <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" style="color:white ;">EMPLOYEE
           <span class="caret"></span></a>
 
+
         <ul class="dropdown-menu">
           <li class="nav-item"><a class="nav-link" href="#" routerLink="/createaccount"
               routerLinkActive="router-link-active">CREATE ACCOUNT</a></li>
@@ -25,6 +26,32 @@
       <li class="dropdown">
         <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" style="color:white ;">CUSTOMER
           <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="nav-item"><a class="nav-link" href="#" routerLink="/createaccount" routerLinkActive="router-link-active">CREATE ACCOUNT</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" routerLink="/updateaccount" routerLinkActive="router-link-active">UPDATE ACCOUNT</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" routerLink="/searchaccount" routerLinkActive="router-link-active">SEARCH ACCOUNT</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <li class="dropdown">
+            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">TRANSACTIONS
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="#" routerLink="/deposit" routerLinkActive="router-link-active">DEPOSIT</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" routerLink="/withdraw" routerLinkActive="router-link-active">WITHDRAW</a></li>
+              </ul>
+          </li>
+        <li class="nav-item">
+          <li class="dropdown">
+            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">CUSTOMER
+            <span class="caret"></span></a>
+
+
+            <ul class="dropdown-menu bg-primary">
+              <li class="dropdown">
+                <!-- <mat-select-trigger   href="#"
+                >    TRANSACTIONS
+
 
 
         <ul class="dropdown-menu">
@@ -46,6 +73,7 @@
         </ul>
       </li>
 
+
       <li class="nav-item">
       <li class="dropdown">
         <a class="dropdown-toggle nav-link " data-toggle="dropdown" href="#" style="color:white ;"> TRANSACTIONS
@@ -60,6 +88,29 @@
       <li class="nav-item"><a class="nav-link" href="#" routerLink="/about-us" routerLinkActive="router-link-active"
           style="color:white ;">ABOUT US
         </a></li>
+
+                </mat-select-trigger> -->
+
+
+              <li class="nav-item"><a class="nav-link bg-primary" href="#" routerLink="/customerupdate" routerLinkActive="router-link-active">UPDATE ACCOUNT</a></li>
+              <li class="nav-item"><a class="nav-link bg-primary" href="#" routerLink="/customersearch" routerLinkActive="router-link-active">SEARCH ACCOUNT</a></li>
+
+            </ul>
+          </li>
+
+          <!-- <li class="nav-item">
+            <li class="dropdown">
+              <a class="dropdown-toggle nav-link bg-primary"  data-toggle="dropdown" href="#">    TRANSACTIONS
+              <span class="caret"></span></a>
+
+              <ul class="dropdown-menu bg-primary">
+                <li class="nav-item "><a class="nav-link bg-primary" href="#" routerLink="/createaccount" routerLinkActive="router-link-active">DEPOSIT</a></li>
+                <li class="nav-item "><a class="nav-link bg-primary" href="#" routerLink="/updateaccount" routerLinkActive="router-link-active">WITHDRAW</a></li>
+              </ul>
+            </li> -->
+     <li class="nav-item"><a  class="nav-link" href="#" routerLink="/about-us" routerLinkActive="router-link-active">ABOUT US
+          </a></li>
+
     </ul>
   </div>
 

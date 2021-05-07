@@ -30,6 +30,7 @@
 
     </div>
   </div>
+
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">State</label>
@@ -40,6 +41,19 @@
     <div class="col-sm-6">
       <label for="lname">Pin Code <span>*</span> </label>
       <input [(ngModel)]='emp.address.pinCode' class="form-control"  placeholder="Pincode" name="lname">
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="address">Email<span>*</span></label>
+      <input [(ngModel)]='emp.email' type="email" class="form-control" id='name' placeholder="Email"
+        name="email" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="lname">Phone Number</label>
+      <input [(ngModel)]='emp.mobileNumber' type="phone" class="form-control"  placeholder="Phone Number" name="phone">
 
     </div>
   </div>

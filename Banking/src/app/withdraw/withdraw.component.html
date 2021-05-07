@@ -1,0 +1,58 @@
+
+<form class="createAccount" id='createAccount'>
+  <h5>Withdraw Amount</h5>
+  <br>
+  <div class="row fieldRow ">
+    <div class="col-sm-12">
+      <label for="lname">AccountNumber<span>*</span></label>
+      <input [(ngModel)]='accountNumber' class="form-control" id='number' placeholder="number" name="number">
+      <br>
+
+      <button class="btn btn-primary" (click)="search()"required >Search</button>
+
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label>First Name<span>*</span></label>
+      <input [(ngModel)]='emp.firstName' type="text" class="form-control" id='fname' placeholder="First Name"
+        name="name" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label>Last Name<span>*</span></label>
+      <input [(ngModel)]='emp.lastName' class="form-control" id='lname' placeholder="Last Name" name="lname">
+    </div>
+
+    <div class="col-sm-12">
+      <label>Amount to withdraw<span>*</span></label>
+      <input [(ngModel)]='emp.withdrawAmount' class="form-control" id='dAmount' name="amount" placeholder="Amount">
+    </div>
+  </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <select style="display: none" [(ngModel)]='emp.status' class="form-control" id='status' name="status" disabled>
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIIVE</option>
+        <option value="CLOSED">CLOSED</option>
+      </select>
+    </div>
+
+    <div class="col-sm-6">
+      <select style="display: none" [(ngModel)]='emp.type' name="type" type="hidden" class="form-control" id='type'
+        disabled>
+        <option value="SAVINGS">SAVINGS</option>
+        <option value="CURRENT">CURRENT</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <input [(ngModel)]='emp.balance' maxlength=100 type="hidden" class="form-control" placeholder="Balance"
+        id="balance" name="balance" disabled required>
+    </div>
+  </div>
+</form>
+<button (click)='withdraw()' class="btn btn-primary btn-block">Withdraw</button>
