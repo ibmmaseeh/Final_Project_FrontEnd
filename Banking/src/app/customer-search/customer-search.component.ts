@@ -38,6 +38,9 @@ console.log(this.empResult);
         })
     }
     else {
+
+        Swal.fire("Please provide account number");
+
       console.log("1");
     }
   }
