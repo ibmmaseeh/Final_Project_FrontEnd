@@ -24,15 +24,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 
 const routes: Routes = [
-  { path: '', component: SideNavComponent },
-  { path: 'createaccount', component: CreateAccountComponent },
-  { path: 'updateaccount', component: UpdateAccountComponent },
-  { path: 'searchaccount', component: SearchAccountComponent },
-  { path: 'customersearch', component: CustomerSearchComponent },
-  { path: 'customerupdate', component: CustomerUpdateComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'withdraw', component: WithdrawComponent }
-
+{path:'', component:SideNavComponent},
+  {path:'createaccount', component:CreateAccountComponent},
+  {path:'updateaccount', component:UpdateAccountComponent},
+  {path:'searchaccount', component:SearchAccountComponent},
+  {path:'customersearch',component:CustomerSearchComponent},
+  {path:'customerupdate', component:CustomerUpdateComponent},
+  {path:'about-us', component:AboutUsComponent}
 
 ];
 
@@ -56,7 +54,7 @@ const routes: Routes = [
     AboutUsComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(routes)
+    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
