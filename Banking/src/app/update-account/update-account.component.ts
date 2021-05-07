@@ -21,7 +21,7 @@ export class UpdateAccountComponent implements OnInit {
         const promise = this.employeeService.getByAccountNumber(accountNumber);
         promise.subscribe(response => {
           this.empResult = response;
-          if (this.empResult.length>0) {
+          if (this.empResult.length > 0) {
             this.empArray = this.empResult;
             this.empArray.forEach(emp => {
 
@@ -47,32 +47,32 @@ export class UpdateAccountComponent implements OnInit {
   }
   updateAcc() {
 
-      const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
-      promise.subscribe(response => {
-        // alert('Account Updated..')
-        Swal.fire({
-          title: 'Are you sure you want to save the changes?',
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, Save it',
-          // cancelButtonText: 'Cancel',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            //if Yes is pressed
-            Swal.fire('Updated', 'Changes Saved successfully!', 'success');
-          } else if (result.isDenied) {
-            //if No is pressed
-            Swal.fire('Cancelled', 'Changes are not Saved', 'error');
-          }
-        });
+    const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
+    promise.subscribe(response => {
+      // alert('Account Updated..')
+      Swal.fire({
+        title: 'Are you sure you want to save the changes?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Save it',
+        // cancelButtonText: 'Cancel',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //if Yes is pressed
+          Swal.fire('Updated', 'Changes Saved successfully!', 'success');
+        } else if (result.isDenied) {
+          //if No is pressed
+          Swal.fire('Cancelled', 'Changes are not Saved', 'error');
+        }
+      });
 
-      },
-        error => {
+    },
+      error => {
 
-              alert("Error occurred");
+        alert("Error occurred");
 
-        })
-    }
+      })
+  }
 
   ngOnInit(): void {
   }
