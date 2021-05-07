@@ -51,6 +51,9 @@ export class WithdrawComponent implements OnInit {
     if(this.emp.firstName.length<=0){
 Swal.fire("Kindly fill details")
     }
+    else if(!this.emp.withdrawAmount){
+      Swal.fire("Kindly fill Amount")
+    }
     else{
     if (this.emp.balance < this.emp.withdrawAmount){
 
@@ -90,9 +93,9 @@ Swal.fire("Kindly fill details")
 
 
         Swal.fire(
-          ("Transaction Complete"),( "Rs. "+ this.emp.withdrawAmount+" has been withdrawn. And remaining balance is Rs. "+this.emp.balance),
-          'success'
-        )
+          ( "Rs. "+ this.emp.withdrawAmount+" has been debited. Remaining balance is Rs. "+this.emp.balance),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
+            'success'
+            )
       }
     })
   }
