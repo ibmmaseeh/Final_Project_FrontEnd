@@ -29,39 +29,46 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.emp.address.state.trim()) {
       Swal.fire("Please provide State");
     }
-    else if (!this.emp.address.pinCode.trim()) {
-      Swal.fire("Please provide pincode");
+    else if (100000>(this.emp.address.pinCode)&&(this.emp.address.pinCode)<999999) {
+      Swal.fire("Please provide valid pincode");
     }
-    else if (!this.emp.balance) {
+    else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
-    else if (!this.emp.accountNumber.trim()) {
-      Swal.fire("Please provide Account Number");
-    }
+  //   else if ((this.emp.accountNumber.length<999999) && (this.emp.accountNumber.length>10000000) ){
+  //     Swal.fire("Please provide 7 Digit  Account Number ");
+
+  // }
 
     else {
       this.emp.status = 'ACTIVE';
+      Swal.fire({
+        title: 'Make sure everything entered is correct..!!',
+        showDenyButton: true,
+        confirmButtonText: `Save Anyway..`,
+        denyButtonText: `Let me Check..`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+
+
+
 
      const promise = this.employeeservice.save(this.emp);
+
       promise.subscribe(response => {
-        Swal.fire({
-          title: 'Make sure everything entered is correct..!!',
-          showDenyButton: true,
-          confirmButtonText: `Save Anyway..`,
-          denyButtonText: `Let me Check..`,
-        }).then((result) => {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            Swal.fire('Account Created!!', '', 'success')
-          } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
-          }
-        })
+        Swal.fire('Account Created!!', '', 'success')
       },
       error=> {
         console.log(error);
         alert('error hapenned..')
       })
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
+    }
+  })
+
+
     }
   }
 

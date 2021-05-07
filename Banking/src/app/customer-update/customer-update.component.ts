@@ -48,28 +48,22 @@ export class CustomerUpdateComponent implements OnInit {
   updateAcc() {
 
     if (!this.emp.firstName.trim()) {
-      Swal.fire("Please provide First name");
+      Swal.fire("Please provide Account number");
     }
     else if (!this.emp.lastName.trim()) {
-      Swal.fire("Please provide Last Name");
+      Swal.fire("Please provide Account number");
     }
     else if (!this.emp.address.houseNumber.trim()) {
-      Swal.fire("Please provide Address");
+      Swal.fire("Please provide Account number");
     }
     else if (!this.emp.address.city.trim()) {
-      Swal.fire("Please provide City Name");
+      Swal.fire("Please provide Account number");
     }
     else if (!this.emp.address.state.trim()) {
-      Swal.fire("Please provide State");
+      Swal.fire("Please provide Account number");
     }
-    else if (!this.emp.address.pinCode.trim()) {
-      Swal.fire("Please provide pincode");
-    }
-    else if (!this.emp.balance) {
-      Swal.fire("Please provide Balance");
-    }
-    else if (!this.emp.accountNumber.trim()) {
-      Swal.fire("Please provide Account Number");
+    else if (100000>(this.emp.address.pinCode)&&(this.emp.address.pinCode)<999999) {
+      Swal.fire("Please provide valid pincode");
     }
 else{
       const promise = this.employeeService.updateCustomer(this.emp, this.emp.id);

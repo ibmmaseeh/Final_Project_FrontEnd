@@ -76,7 +76,7 @@ promise.subscribe(response=>{
 
 
           Swal.fire(
-            ( "Rs. "+ this.emp.depositAmount+" has been credited. Remaining balance is Rs. "+this.emp.balance),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
+            ( "Rs. "+ this.emp.depositAmount+" has been credited."),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
             'success'
             )
           }
