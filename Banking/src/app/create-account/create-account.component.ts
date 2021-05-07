@@ -32,7 +32,7 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.emp.address.pinCode.trim()) {
       Swal.fire("Please provide pincode");
     }
-    else if (!this.emp.balance.trim()) {
+    else if (!this.emp.balance) {
       Swal.fire("Please provide Balance");
     }
     else if (!this.emp.accountNumber.trim()) {

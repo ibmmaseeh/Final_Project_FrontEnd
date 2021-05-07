@@ -14,4 +14,5 @@ Email:string='';
 mobileNumber:any;
 depositAmount:number=0;
 withdrawAmount:number=0;
+transactionDate:Date=new Date();
 }

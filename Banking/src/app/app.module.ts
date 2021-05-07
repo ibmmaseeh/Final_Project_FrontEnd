@@ -30,7 +30,9 @@ const routes: Routes = [
   {path:'searchaccount', component:SearchAccountComponent},
   {path:'customersearch',component:CustomerSearchComponent},
   {path:'customerupdate', component:CustomerUpdateComponent},
-  {path:'about-us', component:AboutUsComponent}
+  {path:'about-us', component:AboutUsComponent},
+  {path:'deposit', component:DepositComponent},
+  {path:'withdraw', component:DepositComponent}
 
 ];
 

@@ -4,10 +4,10 @@
   <div class="row fieldRow ">
     <div class="col-sm-12">
       <label for="lname">AccountNumber<span>*</span></label>
-      <input [(ngModel)]='emp.accountNumber' class="form-control" id='number' placeholder="number" name="number">
+      <input [(ngModel)]='accountNumber' class="form-control" id='number' placeholder="number" name="number">
       <br>
 
-      <button class="btn btn-primary" (click)="search()">Search</button>
+      <button class="btn btn-primary" (click)="searchAccount()">Search</button>
 
     </div>
   </div>
@@ -25,7 +25,7 @@
 
     <div class="col-sm-12">
       <label>Amount to withdraw<span>*</span></label>
-      <input [(ngModel)]='emp.depositAmount' class="form-control" id='dAmount' name="amount" placeholder="Amount">
+      <input [(ngModel)]='emp.depositAmount' class="form-control" id='amount' name="amount" placeholder="Amount">
       </div>
     </div>
     <div class="row fieldRow">
