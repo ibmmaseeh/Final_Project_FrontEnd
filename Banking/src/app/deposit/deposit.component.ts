@@ -53,6 +53,9 @@ export class DepositComponent implements OnInit {
     if(this.emp.firstName.length<=0){
       Swal.fire("Kindly fill details")
           }
+          else if(!this.emp.depositAmount){
+            Swal.fire("Kindly fill Amount")
+          }
           else{
     var a:number=+this.emp.balance
       var b:number=+this.emp.depositAmount;
@@ -73,7 +76,7 @@ promise.subscribe(response=>{
 
 
           Swal.fire(
-            ("Transaction Complete"),( "Rs. "+ this.emp.depositAmount+" has been deposit. And remaining balance is Rs. "+this.emp.balance),
+            ( "Rs. "+ this.emp.depositAmount+" has been credited. Remaining balance is Rs. "+this.emp.balance),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
             'success'
             )
           }
