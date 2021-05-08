@@ -47,7 +47,7 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Email<span>*</span></label>
-      <input [(ngModel)]='emp.email' type="email" class="form-control" id='name' placeholder="Email"
+      <input [(ngModel)]='emp.email' type="email"  pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"  class="form-control" id='name' placeholder="Email"
         name="email" required>
     </div>
 
