@@ -47,7 +47,12 @@ export class CustomerUpdateComponent implements OnInit {
   }
   updateAcc() {
 
-    if (!this.emp.firstName.trim()) {
+    var letters ="/^[A-Za-z]+$/";
+    if (this.emp.accountNumber.length<7)  {
+    Swal.fire("Please provide 7 Digit  Account Number ");
+  }
+ else   if (!this.emp.firstName.trim()) {
+
       Swal.fire("Please provide First name");
     }
     else if (!this.emp.lastName.trim()) {
@@ -71,10 +76,7 @@ export class CustomerUpdateComponent implements OnInit {
     else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
-    else if (this.emp.accountNumber.length<7)  {
-      Swal.fire("Please provide 7 Digit  Account Number ");
 
-  }
   else if(this.emp.mobileNumber.length<10){
     Swal.fire("Please provide valid phone number")
   }

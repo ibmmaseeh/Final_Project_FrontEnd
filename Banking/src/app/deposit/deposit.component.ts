@@ -56,7 +56,11 @@ export class DepositComponent implements OnInit {
           else if(!this.emp.depositAmount){
             Swal.fire("Kindly fill Amount")
           }
-          else{
+          else if(this.emp.status!="ACTIVE")
+
+{
+  Swal.fire("Account not Active")
+}          else{
     var a:number=+this.emp.balance
       var b:number=+this.emp.depositAmount;
       a+=b;
@@ -71,6 +75,7 @@ export class DepositComponent implements OnInit {
         confirmButtonText: 'Yes, deposit Rs. '+this.emp.depositAmount+''
       }).then((result) => {
         if (result.isConfirmed) {
+
 const promise=this.employeeService.updateAccount(this.emp,this.emp.id)
 promise.subscribe(response=>{
 
@@ -80,8 +85,8 @@ promise.subscribe(response=>{
             'success'
             )
           }
-)}
-      })
+)
+        }  })
       }
 
     }
