@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">City</label>
+      <label for="lname">City<span>*</span></label>
       <input [(ngModel)]='emp.address.city' class="form-control" placeholder="City" name="City">
 
     </div>
@@ -30,7 +30,7 @@
 
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">State</label>
+      <label for="address">State<span>*</span></label>
       <input [(ngModel)]='emp.address.state' maxlength=100 type="text" class="form-control" placeholder="State"
         name="name" required>
     </div>
@@ -38,14 +38,14 @@
     <div class="col-sm-6">
       <label for="lname">Pin Code <span>*</span> </label>
       <input [(ngModel)]='emp.address.pinCode' class="form-control" placeholder="Pincode" name="lname">
-
+      <div *ngIf=' emp.address.pinCode.length!=6' class="alert alert-danger"> Invalid Pincode</div>
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Email<span>*</span></label>
       <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email"
-        [(ngModel)]='emp.email' #emailref="ngModel">
+        [(ngModel)]='emp.email' placeholder="Email address" #emailref="ngModel">
       <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
         <div [hidden]="!emailref.errors?.pattern">
           Invalid Email address
@@ -53,41 +53,14 @@
       </div>
     </div>
 
-    <!-- <div class="col-sm-6">
-      <label for="address">Email<span>*</span></label>
-      <input [(ngModel)]='emp.email' type="email"
-        pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" class="form-control" id='name'
-        placeholder="Email" name="email" email="true" required>
-    </div> -->
 
     <div class="col-sm-6">
-      <label for="lname">Phone Number</label>
-      <input [(ngModel)]='emp.mobileNumber' type="phone" class="form-control" placeholder="Phone Number" name="phone">
+      <label for="lname">Phone Number<span>*</span></label>
+      <input [(ngModel)]='emp.mobileNumber' class="form-control" placeholder="+91" name="lname">
+<div *ngIf=' emp.mobileNumber.length!=10' class="alert alert-danger"> Invalid Mobile Number</div>
 
     </div>
   </div>
-  <div class="row fieldRow">
-    <div class="col-sm-6">
-      <label for="severity">Status</label>
-      <select [(ngModel)]='emp.status' class="form-control" id='severity' name="severity">
-        <option value="ACTIVE">ACTIVE</option>
-        <option value="INACTIVE">INACTIIVE</option>
-        <option value="CLOSED">CLOSED</option>
-      </select>
-    </div>
-
-
-    <div class="col-sm-6">
-      <label for="priority">Type</label>
-      <select [(ngModel)]='emp.type' name="priority" class="form-control" id='priority'>
-        <option value="SAVINGS">SAVINGS</option>
-        <option value="CURRENT">CURRENT</option>
-
-      </select>
-    </div>
-
-  </div>
-
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="lname">Account Balance <span>*</span> </label>
@@ -96,11 +69,35 @@
     </div>
     <div class="col-sm-6">
       <label for="lname">Account Number <span>*</span> </label>
-      <input [(ngModel)]='emp.accountNumber' class="form-control" id='lname' placeholder="Account Number"
-        name="Account Number">
+      <input [(ngModel)]='emp.accountNumber' class="form-control" placeholder="Account Number"
+        name="lname">
+        <div *ngIf=' emp.accountNumber.length!=7' class="alert alert-danger"> Invalid Account Number</div>
 
     </div>
   </div>
+  <div class="row fieldRow">
+    <div class="col-sm-6">
+      <label for="status">Status</label>
+      <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
+        <option value ="ACTIVE"  >ACTIVE</option>
+        <option value="INACTIVE">INACTIIVE</option>
+        <option value="CLOSED">CLOSED</option>
+      </select>
+    </div>
+
+
+    <div class="col-sm-6">
+      <label for="type">Type</label>
+      <select [(ngModel)]='emp.type' name="type" class="form-control" id='type'>
+        <option value ="SAVINGS">SAVINGS</option>
+        <option value="CURRENT">CURRENT</option>
+
+      </select>
+    </div>
+
+  </div>
+
+
 
 
 </form>
