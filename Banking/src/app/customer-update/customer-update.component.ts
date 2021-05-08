@@ -49,7 +49,7 @@ export class CustomerUpdateComponent implements OnInit {
 
     var letters ="/^[A-Za-z]+$/";
     if (this.emp.accountNumber.length<7)  {
-    Swal.fire("Please provide 7 Digit  Account Number ");
+    Swal.fire("Please provide Account Number ");
   }
  else   if (!this.emp.firstName.trim()) {
 
@@ -70,7 +70,7 @@ export class CustomerUpdateComponent implements OnInit {
     else if(!this.emp.email.trim()){
       Swal.fire("Please provide Email")
     }
-  
+
     else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
@@ -85,7 +85,7 @@ else{
           icon: 'question',
           showCancelButton: true,
           confirmButtonText: 'Yes, Save it',
-          // cancelButtonText: 'Cancel',
+          cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
             const promise = this.employeeService.updateAccount(this.emp, this.emp.id);

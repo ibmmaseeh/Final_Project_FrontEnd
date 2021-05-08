@@ -48,7 +48,7 @@ export class UpdateAccountComponent implements OnInit {
   updateAcc() {
     var letters ="/^[A-Za-z]+$/";
     if (this.emp.accountNumber.length<7)  {
-      Swal.fire("Please provide 7 Digit  Account Number ");
+      Swal.fire("Please provide  Account Number ");
   }
   else  if (!this.emp.firstName.trim()) {
       Swal.fire("Please provide First name");
@@ -68,12 +68,17 @@ export class UpdateAccountComponent implements OnInit {
     else if(!this.emp.email.trim()){
       Swal.fire("Please provide Email")
     }
-
+    else if (this.emp.address.pinCode<6) {
+      Swal.fire("Please provide 6 digit pincode");
+    }
     else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
-
+  else if(this.emp.mobileNumber.length<10){
+    Swal.fire("Please provide valid phone number")
+  }
 else{
+
 
         // alert('Account Updated..')
         Swal.fire({
@@ -81,20 +86,18 @@ else{
           icon: 'question',
           showCancelButton: true,
           confirmButtonText: 'Yes, Save it',
-          // cancelButtonText: 'Cancel',
+          cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
-            const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
-            promise.subscribe(response => {
+            const promise=this.employeeService.updateAccount(this.emp,this.emp.id);
+            promise.subscribe(response =>{
+              //if Yes is pressed
+            Swal.fire('Updated', 'Changes Saved successfully!', 'success');
             },
-            error => {
-
-                  alert("Error occurred");
-
+            error =>{
+              alert("Error occured");
             })
 
-            //if Yes is pressed
-            Swal.fire('Updated', 'Changes Saved successfully!', 'success');
           } else if (result.isDenied) {
             //if No is pressed
             Swal.fire('Cancelled', 'Changes are not Saved', 'error');
