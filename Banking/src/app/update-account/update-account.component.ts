@@ -78,8 +78,6 @@ export class UpdateAccountComponent implements OnInit {
     Swal.fire("Please provide valid phone number")
   }
 else{
-      const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
-      promise.subscribe(response => {
 
         // alert('Account Updated..')
         Swal.fire({
@@ -90,6 +88,15 @@ else{
           // cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
+            const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
+            promise.subscribe(response => {
+            },
+            error => {
+
+                  alert("Error occurred");
+
+            })
+
             //if Yes is pressed
             Swal.fire('Updated', 'Changes Saved successfully!', 'success');
           } else if (result.isDenied) {
@@ -97,12 +104,7 @@ else{
             Swal.fire('Cancelled', 'Changes are not Saved', 'error');
           }
         });
-      },
-        error => {
 
-              alert("Error occurred");
-
-        })
     }
   }
   ngOnInit(): void {
