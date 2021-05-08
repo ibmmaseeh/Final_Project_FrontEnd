@@ -9,7 +9,7 @@ export class Emp{
   status:string = 'ACTIVE';
   createdDate:Date = new Date();
   accountNumber:string='';
-balance:any;
+balance:number=0;
 email:string='';
 mobileNumber:any;
 depositAmount:number=0;

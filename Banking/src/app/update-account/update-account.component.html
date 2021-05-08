@@ -84,9 +84,14 @@
         name="name" required>
     </div>
     <div class="col-sm-6">
-      <label for="lname">Email <span>*</span> </label>
-      <input [(ngModel)]='emp.email' class="form-control" id='accountNumber' placeholder="E-mail" name="Account Number">
-
+      <label for="address">Email<span>*</span></label>
+      <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email"
+        [(ngModel)]='emp.email' #emailref="ngModel">
+      <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
+        <div [hidden]="!emailref.errors?.pattern">
+          Invalid Email address
+        </div>
+      </div>
     </div>
   </div>
 
