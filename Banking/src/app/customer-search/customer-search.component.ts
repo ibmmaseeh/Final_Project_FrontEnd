@@ -18,7 +18,7 @@ export class CustomerSearchComponent implements OnInit {
     const accountNumber = this.accountNumber.trim();
     console.log(accountNumber);
     if (accountNumber) {
-      const promise = this.employeeService.getByAccount(accountNumber);
+      const promise = this.employeeService.getByAccountNumber(accountNumber);
         promise.subscribe(response => {
           this.empResult = response;
 console.log(this.empResult);
