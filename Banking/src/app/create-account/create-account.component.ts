@@ -29,16 +29,22 @@ export class CreateAccountComponent implements OnInit {
     else if (!this.emp.address.state.trim()) {
       Swal.fire("Please provide State");
     }
-    else if (100000>(this.emp.address.pinCode)&&(this.emp.address.pinCode)<999999) {
-      Swal.fire("Please provide valid pincode");
+    else if(!this.emp.email.trim()){
+      Swal.fire("Please provide Email")
+    }
+    else if (this.emp.address.pinCode.length<6) {
+      Swal.fire("Please provide 6 digit pincode");
     }
     else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
-  //   else if ((this.emp.accountNumber.length<999999) && (this.emp.accountNumber.length>10000000) ){
-  //     Swal.fire("Please provide 7 Digit  Account Number ");
+    else if (this.emp.accountNumber.length<7)  {
+      Swal.fire("Please provide 7 Digit  Account Number ");
 
-  // }
+  }
+  else if(this.emp.mobileNumber.length<10){
+    Swal.fire("Please provide valid phone number")
+  }
 
     else {
       this.emp.status = 'ACTIVE';

@@ -46,25 +46,39 @@ export class CustomerUpdateComponent implements OnInit {
     }
   }
   updateAcc() {
+    var letters ="/^[A-Za-z]+$/";
 
     if (!this.emp.firstName.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide First name");
     }
     else if (!this.emp.lastName.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide Last Name");
     }
     else if (!this.emp.address.houseNumber.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide Address");
     }
     else if (!this.emp.address.city.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide City Name");
     }
     else if (!this.emp.address.state.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide State");
     }
-    else if (100000>(this.emp.address.pinCode)&&(this.emp.address.pinCode)<999999) {
-      Swal.fire("Please provide valid pincode");
+    else if(!this.emp.email.trim()){
+      Swal.fire("Please provide Email")
     }
+    else if (this.emp.address.pinCode.length<6) {
+      Swal.fire("Please provide 6 digit pincode");
+    }
+    else if (this.emp.balance<0) {
+      Swal.fire("Please provide Balance");
+    }
+    else if (this.emp.accountNumber.length<7)  {
+      Swal.fire("Please provide 7 Digit  Account Number ");
+
+  }
+  else if(this.emp.mobileNumber.length<10){
+    Swal.fire("Please provide valid phone number")
+  }
 else{
       const promise = this.employeeService.updateCustomer(this.emp, this.emp.id);
       promise.subscribe(response => {
