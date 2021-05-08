@@ -46,11 +46,13 @@ export class CustomerUpdateComponent implements OnInit {
     }
   }
   updateAcc() {
+
     var letters ="/^[A-Za-z]+$/";
     if (this.emp.accountNumber.length<7)  {
     Swal.fire("Please provide 7 Digit  Account Number ");
   }
  else   if (!this.emp.firstName.trim()) {
+
       Swal.fire("Please provide First name");
     }
     else if (!this.emp.lastName.trim()) {
@@ -60,7 +62,7 @@ export class CustomerUpdateComponent implements OnInit {
       Swal.fire("Please provide Address");
     }
     else if (!this.emp.address.city.trim()) {
-      Swal.fire("Please provide City Name");
+      Swal.fire("Please provide City");
     }
     else if (!this.emp.address.state.trim()) {
       Swal.fire("Please provide State");
@@ -75,8 +77,8 @@ export class CustomerUpdateComponent implements OnInit {
 
 
 else{
-      const promise = this.employeeService.updateCustomer(this.emp, this.emp.id);
-      promise.subscribe(response => {
+
+
         // alert('Account Updated..')
         Swal.fire({
           title: 'Are you sure you want to save the changes?',
@@ -86,6 +88,14 @@ else{
           // cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
+            const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
+            promise.subscribe(response => {
+            },
+            error => {
+
+                  alert("Error occurred");
+
+            })
             //if Yes is pressed
             Swal.fire('Updated', 'Changes Saved successfully!', 'success');
           } else if (result.isDenied) {
@@ -93,12 +103,7 @@ else{
             Swal.fire('Cancelled', 'Changes are not Saved', 'error');
           }
         });
-      },
-        error => {
 
-              alert("Error occurred");
-
-        })
     }
   }
   ngOnInit(): void {
