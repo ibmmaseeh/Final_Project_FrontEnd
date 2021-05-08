@@ -1,14 +1,11 @@
-
-
-
 <form class="createAccount" id='createAccount'>
   <h5>Create Account</h5>
   <br>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="fname">First Name<span>*</span></label>
-      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='name' placeholder="First Name"
-        name="name" required>
+      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='name'
+        placeholder="First Name" name="name" required>
     </div>
 
     <div class="col-sm-6">
@@ -20,13 +17,13 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Address<span>*</span></label>
-      <input [(ngModel)]='emp.address.houseNumber' maxlength=100 type="text" class="form-control" id='name' placeholder="Address"
-        name="name" required>
+      <input [(ngModel)]='emp.address.houseNumber' maxlength=100 type="text" class="form-control" id='name'
+        placeholder="Address" name="name" required>
     </div>
 
     <div class="col-sm-6">
       <label for="lname">City</label>
-      <input [(ngModel)]='emp.address.city' class="form-control"  placeholder="City" name="City">
+      <input [(ngModel)]='emp.address.city' class="form-control" placeholder="City" name="City">
 
     </div>
   </div>
@@ -40,54 +37,67 @@
 
     <div class="col-sm-6">
       <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='emp.address.pinCode' class="form-control"  placeholder="Pincode" name="lname">
+      <input [(ngModel)]='emp.address.pinCode' class="form-control" placeholder="Pincode" name="lname">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Email<span>*</span></label>
-      <input [(ngModel)]='emp.email' type="email"  pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"  class="form-control" id='name' placeholder="Email"
-        name="email" required>
+      <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email"
+        [(ngModel)]='emp.email' #emailref="ngModel">
+      <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
+        <div [hidden]="!emailref.errors?.pattern">
+          Invalid Email address
+        </div>
+      </div>
     </div>
+
+    <!-- <div class="col-sm-6">
+      <label for="address">Email<span>*</span></label>
+      <input [(ngModel)]='emp.email' type="email"
+        pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" class="form-control" id='name'
+        placeholder="Email" name="email" email="true" required>
+    </div> -->
 
     <div class="col-sm-6">
       <label for="lname">Phone Number</label>
-      <input [(ngModel)]='emp.mobileNumber' type="phone" class="form-control"  placeholder="Phone Number" name="phone">
+      <input [(ngModel)]='emp.mobileNumber' type="phone" class="form-control" placeholder="Phone Number" name="phone">
 
     </div>
   </div>
   <div class="row fieldRow">
-  <div class="col-sm-6">
-    <label for="severity">Status</label>
-    <select [(ngModel)]='emp.status' class="form-control" id='severity' name="severity">
-      <option value="ACTIVE">ACTIVE</option>
-      <option value="INACTIVE">INACTIIVE</option>
-      <option value="CLOSED">CLOSED</option>
-    </select>
-  </div>
+    <div class="col-sm-6">
+      <label for="severity">Status</label>
+      <select [(ngModel)]='emp.status' class="form-control" id='severity' name="severity">
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIIVE</option>
+        <option value="CLOSED">CLOSED</option>
+      </select>
+    </div>
 
 
-  <div class="col-sm-6">
-    <label for="priority">Type</label>
-    <select [(ngModel)]='emp.type' name="priority" class="form-control" id='priority'>
-      <option value="SAVINGS">SAVINGS</option>
-      <option value="CURRENT">CURRENT</option>
+    <div class="col-sm-6">
+      <label for="priority">Type</label>
+      <select [(ngModel)]='emp.type' name="priority" class="form-control" id='priority'>
+        <option value="SAVINGS">SAVINGS</option>
+        <option value="CURRENT">CURRENT</option>
 
-    </select>
-  </div>
+      </select>
+    </div>
 
   </div>
 
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="address">Balance</label>
-      <input [(ngModel)]='emp.balance' maxlength=100 type="text" class="form-control"  placeholder="Balance"
-        name="name" required>
+      <input [(ngModel)]='emp.balance' maxlength=100 type="text" class="form-control" placeholder="Balance" name="name"
+        required>
     </div>
     <div class="col-sm-6">
       <label for="lname">Account Number <span>*</span> </label>
-      <input [(ngModel)]='emp.accountNumber' class="form-control" id='lname' placeholder="Account Number" name="Account Number">
+      <input [(ngModel)]='emp.accountNumber' class="form-control" id='lname' placeholder="Account Number"
+        name="Account Number">
 
     </div>
   </div>
