@@ -59,6 +59,10 @@ Swal.fire("Kindly fill details")
 
         Swal.fire("Enter an amount less than or equal to " + this.emp.balance);
       }
+      else if(this.emp.status!="ACTIVE")
+      {
+        Swal.fire("Account not Active")
+      }
     else{
     Swal.fire({
       title: 'Are you sure?',
@@ -93,13 +97,13 @@ Swal.fire("Kindly fill details")
 
 
         Swal.fire(
-          ( "Rs. "+ this.emp.withdrawAmount+" has been debited. Remaining balance is Rs. "+this.emp.balance),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
+          ( "Rs. "+ this.emp.withdrawAmount+" has been debited."),("Transaction Complete with ID "+(Math.floor(100000 + Math.random() * 900000))),
             'success'
             )
       }
     })
   }
-  }
+        }
 
   }
   ngOnInit(): void {
