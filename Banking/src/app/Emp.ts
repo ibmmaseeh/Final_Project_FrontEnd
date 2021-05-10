@@ -8,8 +8,8 @@ export class Emp{
   type:string = 'SAVINGS';
   status:string = 'ACTIVE';
   createdDate:Date = new Date();
-  accountNumber:string='';
-balance:any;
+  accountNumber:any;
+balance:number=0;
 email:string='';
 mobileNumber:any;
 depositAmount:number=0;

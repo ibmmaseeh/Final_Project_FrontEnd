@@ -60,7 +60,7 @@
     <label for="severity">Status</label>
     <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
       <option value="ACTIVE" disabled>ACTIVE</option>
-      <option value="INACTIVE" disabled>INACTIIVE</option>
+      <option value="INACTIVE" disabled>INACTIVE</option>
       <option value="CLOSED" disabled>CLOSED</option>
     </select>
   </div>
@@ -84,9 +84,14 @@
         name="name" required>
     </div>
     <div class="col-sm-6">
-      <label for="lname">E-mail<span>*</span> </label>
-      <input [(ngModel)]='emp.email' class="form-control" id='accountNumber' placeholder="E-mail" name="Account Number">
-
+      <label for="address">Email<span>*</span></label>
+      <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email"
+        [(ngModel)]='emp.email' #emailref="ngModel">
+      <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">
+        <div [hidden]="!emailref.errors?.pattern">
+          Invalid Email address
+        </div>
+      </div>
     </div>
   </div>
 

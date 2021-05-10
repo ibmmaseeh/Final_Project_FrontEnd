@@ -47,36 +47,55 @@ export class CustomerUpdateComponent implements OnInit {
   }
   updateAcc() {
 
-    if (!this.emp.firstName.trim()) {
-      Swal.fire("Please provide Account number");
+    var letters ="/^[A-Za-z]+$/";
+    if (this.emp.accountNumber.length<7)  {
+    Swal.fire("Please provide Account Number ");
+  }
+ else   if (!this.emp.firstName.trim()) {
+
+      Swal.fire("Please provide First name");
     }
     else if (!this.emp.lastName.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide Last Name");
     }
     else if (!this.emp.address.houseNumber.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide Address");
     }
     else if (!this.emp.address.city.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide City");
     }
     else if (!this.emp.address.state.trim()) {
-      Swal.fire("Please provide Account number");
+      Swal.fire("Please provide State");
     }
-    else if (100000>(this.emp.address.pinCode)&&(this.emp.address.pinCode)<999999) {
-      Swal.fire("Please provide valid pincode");
+    else if(!this.emp.email.trim()){
+      Swal.fire("Please provide Email")
     }
+
+    else if (this.emp.balance<0) {
+      Swal.fire("Please provide Balance");
+    }
+
+
 else{
-      const promise = this.employeeService.updateCustomer(this.emp, this.emp.id);
-      promise.subscribe(response => {
+
+
         // alert('Account Updated..')
         Swal.fire({
           title: 'Are you sure you want to save the changes?',
           icon: 'question',
           showCancelButton: true,
           confirmButtonText: 'Yes, Save it',
-          // cancelButtonText: 'Cancel',
+          cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
+            const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
+            promise.subscribe(response => {
+            },
+            error => {
+
+                  alert("Error occurred");
+
+            })
             //if Yes is pressed
             Swal.fire('Updated', 'Changes Saved successfully!', 'success');
           } else if (result.isDenied) {
@@ -84,12 +103,7 @@ else{
             Swal.fire('Cancelled', 'Changes are not Saved', 'error');
           }
         });
-      },
-        error => {
 
-              alert("Error occurred");
-
-        })
     }
   }
   ngOnInit(): void {
