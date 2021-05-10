@@ -6,7 +6,7 @@
       <label for="fname">First Name<span>*</span></label>
       <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='firstname'
         placeholder="First Name" name="firstname" required>
-
+        <div *ngIf='emp.firstName.length<3'>Minimum 3 characters Required</div>
     </div>
 
     <div class="col-sm-6">
@@ -81,7 +81,7 @@
       <label for="status">Status</label>
       <select [(ngModel)]='nrSelect' class="form-control" id='status' name="status">
         <option value ="ACTIVE"  >ACTIVE</option>
-        <option value="INACTIVE">INACTIIVE</option>
+        <option value="INACTIVE">INACTIVE</option>
         <option value="CLOSED">CLOSED</option>
       </select>
     </div>
