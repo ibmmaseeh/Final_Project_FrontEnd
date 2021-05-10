@@ -46,8 +46,8 @@ export class UpdateAccountComponent implements OnInit {
     }
   }
   updateAcc() {
-    var letters ="/^[A-Za-z]+$/";
-    if (this.emp.accountNumber.length<7)  {
+
+    if (!this.emp.accountNumber)  {
       Swal.fire("Please provide  Account Number ");
   }
   else  if (!this.emp.firstName.trim()) {
@@ -84,9 +84,9 @@ else{
         Swal.fire({
           title: 'Are you sure you want to save the changes?',
           icon: 'question',
-          showCancelButton: true,
+          showDenyButton: true,
           confirmButtonText: 'Yes, Save it',
-          cancelButtonText: 'Cancel',
+          denyButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
             const promise=this.employeeService.updateAccount(this.emp,this.emp.id);
