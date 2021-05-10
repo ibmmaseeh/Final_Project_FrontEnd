@@ -21,6 +21,7 @@
       <label for="fname">First Name<span>*</span></label>
       <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='fname' placeholder="First Name"
         name="fname" required>
+       
     </div>
 
     <div class="col-sm-6">
@@ -60,7 +61,7 @@
     <label for="severity">Status</label>
     <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
       <option value="ACTIVE">ACTIVE</option>
-      <option value="INACTIVE">INACTIIVE</option>
+      <option value="INACTIVE">INACTIVE</option>
       <option value="CLOSED">CLOSED</option>
     </select>
   </div>
