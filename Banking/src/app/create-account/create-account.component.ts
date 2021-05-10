@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
+  nrSelect="ACTIVE";
   emp:Emp = new Emp();
   address:Address =new Address()
   constructor(private employeeservice: EmployeeService) { }
@@ -33,12 +34,16 @@ export class CreateAccountComponent implements OnInit {
       Swal.fire("Please provide Email")
     }
 
-    else if (this.emp.balance<0) {
+    else if (this.emp.balance<0 ){
       Swal.fire("Please provide Balance");
     }
+    else if (!this.emp.mobileNumber.trim()) {
+      Swal.fire("Please provide Phone Number");
+    }
 
-
-
+    else if (!this.emp.accountNumber.trim()) {
+      Swal.fire("Please provide Account Number");
+    }
     else {
       this.emp.status = 'ACTIVE';
       Swal.fire({
@@ -72,6 +77,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }

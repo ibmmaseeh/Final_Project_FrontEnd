@@ -4,8 +4,9 @@
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="fname">First Name<span>*</span></label>
-      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='name'
-        placeholder="First Name" name="name" required>
+      <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='firstname'
+        placeholder="First Name" name="firstname" required>
+
     </div>
 
     <div class="col-sm-6">
@@ -22,7 +23,7 @@
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">City<span>*</span></label>
+      <label for="city">City<span>*</span></label>
       <input [(ngModel)]='emp.address.city' class="form-control" placeholder="City" name="City">
 
     </div>
@@ -36,9 +37,9 @@
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='emp.address.pinCode' class="form-control" placeholder="Pincode" name="lname">
-      <div *ngIf=' emp.address.pinCode.length!=6' class="alert alert-danger"> Invalid Pincode</div>
+      <label for="pincode">Pin Code <span>*</span> </label>
+      <input [(ngModel)]='emp.address.pinCode' class="form-control" placeholder="Pincode" name="pincode">
+      <div *ngIf=' emp.address.pinCode.length!=6' class="alert alert-danger"> Invalid Pincode (should be 6 digit)</div>
     </div>
   </div>
   <div class="row fieldRow">
@@ -55,30 +56,30 @@
 
 
     <div class="col-sm-6">
-      <label for="lname">Phone Number<span>*</span></label>
-      <input [(ngModel)]='emp.mobileNumber' class="form-control" placeholder="+91" name="lname">
-<div *ngIf=' emp.mobileNumber.length!=10' class="alert alert-danger"> Invalid Mobile Number</div>
+      <label for="phoneNumber">Phone Number<span>*</span></label>
+      <input [(ngModel)]='emp.mobileNumber' class="form-control" placeholder="+91" name="PhoneNumber">
+<div *ngIf=' emp.mobileNumber.length!=10' class="alert alert-danger"> Invalid Mobile Number(should be 10 digit)</div>
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="lname">Account Balance <span>*</span> </label>
-      <input [(ngModel)]='emp.balance' class="form-control" id='lname' placeholder="Balance"
+      <label for="balance">Account Balance <span>*</span> </label>
+      <input [(ngModel)]='emp.balance' class="form-control" id='balance' placeholder="Balance"
         name="Balance">
     </div>
     <div class="col-sm-6">
-      <label for="lname">Account Number <span>*</span> </label>
+      <label for="accountNumber">Account Number <span>*</span> </label>
       <input [(ngModel)]='emp.accountNumber' class="form-control" placeholder="Account Number"
-        name="lname">
-        <div *ngIf=' emp.accountNumber.length!=7' class="alert alert-danger"> Invalid Account Number</div>
+        name="accountNumber">
+        <div *ngIf=' emp.accountNumber.length!=7' class="alert alert-danger"> Invalid Account Number(should be 7 digit)</div>
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
       <label for="status">Status</label>
-      <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
+      <select [(ngModel)]='nrSelect' class="form-control" id='status' name="status">
         <option value ="ACTIVE"  >ACTIVE</option>
         <option value="INACTIVE">INACTIIVE</option>
         <option value="CLOSED">CLOSED</option>
@@ -96,8 +97,6 @@
     </div>
 
   </div>
-
-
 
 
 </form>
