@@ -9,7 +9,9 @@
     <div class="row">
       <label class="col-sm-3 nameLable" >Account Number</label>
       <input [(ngModel)]='accNumber' class="form-control col-sm-9" name="accountNumber" id='accountNumber'>
+
     </div>
+
   </form>
   <div class="col-sm-3">
     <button class="btn btn-primary btn-block" (click)='searchAccount()'>Search</button>
@@ -37,14 +39,14 @@
     </div>
 
     <div class="col-sm-6">
-      <label for="lname">City</label>
+      <label for="city">City</label>
       <input [(ngModel)]='emp.address.city' class="form-control" id='city' placeholder="City" name="City">
 
     </div>
   </div>
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">State</label>
+      <label for="state">State</label>
       <input [(ngModel)]='emp.address.state' maxlength=100 type="text" class="form-control" id='state' placeholder="State"
         name="state" required>
     </div>
@@ -57,7 +59,7 @@
   </div>
   <div class="row fieldRow">
   <div class="col-sm-6">
-    <label for="severity">Status</label>
+    <label for="status">Status</label>
     <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
       <option value="ACTIVE" disabled>ACTIVE</option>
       <option value="INACTIVE" disabled>INACTIVE</option>
@@ -79,7 +81,7 @@
 
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Balance</label>
+      <label for="balance">Balance</label>
       <input [(ngModel)]='emp.balance' maxlength=100 type="text" class="form-control" disabled id='balance' placeholder="Balance"
         name="name" required>
     </div>

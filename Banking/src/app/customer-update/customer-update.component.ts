@@ -46,9 +46,7 @@ export class CustomerUpdateComponent implements OnInit {
     }
   }
   updateAcc() {
-
-    var letters ="/^[A-Za-z]+$/";
-    if (this.emp.accountNumber.length<7)  {
+    if (!this.emp.accountNumber)  {
     Swal.fire("Please provide Account Number ");
   }
  else   if (!this.emp.firstName.trim()) {
@@ -74,7 +72,10 @@ export class CustomerUpdateComponent implements OnInit {
     else if (this.emp.balance<0) {
       Swal.fire("Please provide Balance");
     }
-
+    else if(this.emp.status=='CLOSED')
+{
+  Swal.fire("Account closed..Kindly Contact Bank Team ")
+}
 
 else{
 
@@ -88,6 +89,7 @@ else{
           cancelButtonText: 'Cancel',
         }).then((result) => {
           if (result.isConfirmed) {
+
             const promise = this.employeeService.updateAccount(this.emp, this.emp.id);
             promise.subscribe(response => {
             },
