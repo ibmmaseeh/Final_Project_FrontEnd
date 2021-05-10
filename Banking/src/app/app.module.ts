@@ -24,9 +24,6 @@ import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
-
-
-
 const routes: Routes = [
 {path:'', component:SideNavComponent},
   {path:'createaccount', component:CreateAccountComponent},
