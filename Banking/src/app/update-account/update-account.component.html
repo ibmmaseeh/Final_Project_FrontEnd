@@ -9,6 +9,7 @@
     <div class="row">
       <label class="col-sm-3 nameLable" >Account Number</label>
       <input [(ngModel)]='accNumber' class="form-control col-sm-9" name="accountNumber" id='accountNumber'>
+
     </div>
   </form>
   <div class="col-sm-3">
@@ -50,14 +51,14 @@
     </div>
 
     <div class="col-sm-6">
-      <label for="pincode">Pin Code <span>*</span> </label>
-      <input [(ngModel)]='emp.address.pinCode' class="form-control" id='pincode' placeholder="Pincode" name="pincode">
-
-    </div>
+      <label for="balance">Balance</label>
+      <input [(ngModel)]='emp.balance' maxlength=100 type="text" class="form-control" disabled id='balance' placeholder="Balance"
+        name="name" required>
+        </div>
   </div>
   <div class="row fieldRow">
   <div class="col-sm-6">
-    <label for="severity">Status</label>
+    <label for="status">Status</label>
     <select [(ngModel)]='emp.status' class="form-control" id='status' name="status">
       <option value="ACTIVE">ACTIVE</option>
       <option value="INACTIVE">INACTIIVE</option>
@@ -77,14 +78,15 @@
 
   </div>
 
+
   <div class="row fieldRow">
     <div class="col-sm-6">
-      <label for="address">Balance</label>
-      <input [(ngModel)]='emp.balance' maxlength=100 type="text" disabled class="form-control" id='balance' placeholder="Balance"
-        name="name" required>
+      <label for="pincode">Pin Code <span>*</span> </label>
+      <input [(ngModel)]='emp.address.pinCode' class="form-control" id='pincode' placeholder="Pincode" name="pincode">
+
     </div>
     <div class="col-sm-6">
-      <label for="address">Email<span>*</span></label>
+      <label for="email">Email<span>*</span></label>
       <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" name="email"
         [(ngModel)]='emp.email' #emailref="ngModel">
       <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="alert alert-danger">

@@ -6,6 +6,7 @@
       <label for="fname">First Name<span>*</span></label>
       <input [(ngModel)]='emp.firstName' maxlength=100 type="text" class="form-control" id='firstname'
         placeholder="First Name" name="firstname" required>
+        <div *ngIf='emp.firstName.length<3'>Minimum 3 characters required</div>
 
     </div>
 
